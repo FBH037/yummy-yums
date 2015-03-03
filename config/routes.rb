@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
-    root 'welcome#index'
+    root 'user_recipes#index'
 
-    get 'signup'  => 'users#new'
+    get 'signup'  => 'registrations#new'
+
+    post 'signup' => 'registrations#create'
 
     get    'login'   => 'sessions#new'
 
