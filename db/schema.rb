@@ -11,26 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 
 ActiveRecord::Schema.define(version: 20150303210145) do
->>>>>>> hb-89545342
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
   create_table "users_tables", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    
+
   create_table "recipes", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.string "instruction"
->>>>>>> hb-89545342
   end
 
 end
