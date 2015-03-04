@@ -12,7 +12,10 @@ class UserRecipesController < ApplicationController
   def create
     @user_recipe = UserRecipe.new(user_recipe_params)
     @user_recipe.user_like = false
-    @user_recipe.user_id = session[:user_id]
+    @user_recipe.recipe_id = 1
+    if @user_recipe.user_id.nil?
+      @user_recipe.user_id = session[:user_id]
+    end
     if @user_recipe.save
       redirect_to root_path
     else

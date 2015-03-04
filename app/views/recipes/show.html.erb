@@ -1,0 +1,10 @@
+<h1 class= "page-header"> <%= @recipe.title %></h1>
+
+Description: <%= @recipe.description %><br>
+Instruction: <%= @recipe.instruction %>
+
+<%= form_for @user_recipe do |f| %>
+<%= f.label :user_id, "Share with" %>
+<%= f.collection_select :user_id, User.all, :id, :email  %>
+<%= f.submit "Share" %>
+<% end %>
