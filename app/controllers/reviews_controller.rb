@@ -39,8 +39,8 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:description, :recipe_id)
   end
 
-  # def admin_user
-  #   redirect_to ------> recipes_path/recipe_reviews_path(recipe) <------- unless current_user.admin?
-  #   end
-  #
+  def admin_user
+    redirect_to recipe_reviews_path(recipe) unless current_user.admin?
+    end
+
 end
