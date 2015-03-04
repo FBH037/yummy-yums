@@ -1,0 +1,16 @@
+<h1>All user_recipes</h1>
+<br>
+<table>
+<tr>
+  <th>User id</th>
+  <th>Recipe id</th>
+  <th>User Like</th>
+</tr>
+<tr>
+  <% @user_recipes.each do |user_recipe| %>
+      <td><%= user_recipe.user_id %></td>
+        <td><%= user_recipe.recipe_id %></td>
+          <td><%= user_recipe.user_like %></td>
+  </tr>
+  <% end %>
+</table>
