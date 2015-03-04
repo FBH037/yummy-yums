@@ -9,3 +9,22 @@ Instruction: <%= @recipe.instruction %>
 <%= f.hidden_field :recipe_id, :value => @recipe.id %>
 <%= f.submit "Share" %>
 <% end %>
+
+<div><%= link_to 'Add a Review', new_recipe_review_path(@recipe), class:"btn btn" %></div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Reviews</th>
+    <th>Reviewer</th>
+  </tr>
+</thead>
+  <tbody>
+  <tr>
+    <% @recipe.reviews.each do |review| %>
+    <td><%= review.description %></td>
+    <td><%="#{current_user.full_name}" %>
+    </tr>
+  </tbody>
+<% end %>
+</table>

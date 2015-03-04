@@ -10,7 +10,9 @@ class RecipesController < ApplicationController
   def show
   # recipe_id[:recipe_id] = @recipe.id
   @user_recipe = UserRecipe.new
-  end
+  @recipe = Recipe.find(params[:id])
+  @reviews = @recipe.reviews
+end
 
   def new
     @recipe = Recipe.new
