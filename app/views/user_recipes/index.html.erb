@@ -1,0 +1,18 @@
+<h1>Your recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+    <tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @user.recipes.each do |user_recipe| %>
+        <td>
+          <%= user_recipe.title %>
+        </td>
+      <%end%>
+    </tr>
+  </tbody>
+</table>
