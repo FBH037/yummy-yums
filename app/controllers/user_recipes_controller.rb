@@ -12,7 +12,7 @@ class UserRecipesController < ApplicationController
   def create
     @user_recipe = UserRecipe.new(user_recipe_params)
     @user_recipe.user_like = false
-    @user_recipe.recipe_id = 1
+    # @user_recipe.recipe_id = recipe_id[:recipe_id]
     if @user_recipe.user_id.nil?
       @user_recipe.user_id = session[:user_id]
     end
