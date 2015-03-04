@@ -1,4 +1,5 @@
 class UserRecipesController < ApplicationController
+
   def index
   @user = User.find(session[:user_id])
   @user_recipes = @user.recipes

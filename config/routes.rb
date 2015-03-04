@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
     resources :users
-    resources :recipes
-    resources :reviews
+    resources :user_recipes
+    resources :recipes do
+      resources :reviews
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
