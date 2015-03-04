@@ -10,7 +10,7 @@
     <tr>
       <% @user.recipes.each do |user_recipe| %>
         <td>
-          <%= user_recipe.title %>
+          <%= link_to user_recipe.title, recipe_path(user_recipe) %>
         </td>
       <%end%>
     </tr>
