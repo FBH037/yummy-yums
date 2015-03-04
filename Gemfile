@@ -29,6 +29,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker', '~> 1.4.2'
 
+group :production do
+
+  gem 'rails_12factor'
+  
+end
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
