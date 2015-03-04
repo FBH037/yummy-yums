@@ -1,2 +1,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body{
+  background-image: url('restaurant_icons.png');
+}
+.wrapper{
+  margin: 0 20%;
+  height: 1500px;
+  background-color:white;
+  opacity: .7;
+  border-left: 5px solid hotpink;
+  border-right: 5px solid hotpink;
+}
+
+.navbar{
+  margin-bottom: 0px;
+}
