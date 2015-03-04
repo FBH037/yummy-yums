@@ -8,8 +8,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-
-  @user_recipe = UserRecipe.new(recipe_id: @recipe.id) 
+  # recipe_id[:recipe_id] = @recipe.id
+  @user_recipe = UserRecipe.new
   end
 
   def new
@@ -24,6 +24,7 @@ class RecipesController < ApplicationController
     render :new
   end
   end
+
 
 private
   def recipe_params
