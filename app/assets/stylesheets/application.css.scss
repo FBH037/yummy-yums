@@ -5,14 +5,27 @@ body{
   background-image: url('restaurant_icons.png');
 }
 .wrapper{
-  margin: 0 20%;
+  margin: 50px 20% 0;
   height: 1500px;
   background-color:white;
   opacity: .7;
-  border-left: 5px solid hotpink;
-  border-right: 5px solid hotpink;
+  border-left: 5px solid #B7250E;
+  border-right: 5px solid #B7250E;
 }
 
-.navbar{
-  margin-bottom: 0px;
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav > li > a:hover {
+  color: #B7250E;
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+footer {
+  background-color: #e7e7e7;
+  position: relative;
+  color: #B7250E;
+  padding: 10px;
 }
