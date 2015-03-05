@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :admin_user, except:  [:show, :index]
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -7,18 +8,22 @@ def index
   @users = User.all
 end
 
+
   def new
     @user = User.new
   end
 
   def create
-    if @current_user.role == "admin"
-      @user = User.new(params.require[:user].permit[:first_name, :last_name, :email, :password,
-                                   :password_confirmation, :role])
+    if @current_role == "admin"
+      @user = User.new(params.require(:user).permit(:first_name, :last_name, :email, :password,
+                                   :password_confirmation, :role))
    else
     @user = User.new(user_params)
   end
     if @user.save
+      if @user.role.nil?
+        @user.role = "member"
+      end
       session[:user_id] = @user.id
       redirect_to root_path, notice: "You have successfully signed up."
     else

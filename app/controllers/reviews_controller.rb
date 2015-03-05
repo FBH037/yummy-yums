@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
-  before_action :admin_user, only:  [:edit, :destroy]
+  before_action :admin_user, only:  [:edit, :update, :destroy]
+  before_action :member_user, except: [:show, :index]
 
   def index
     @reviews = Review.all

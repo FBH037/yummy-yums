@@ -1,8 +1,8 @@
 class RecipesController < ApplicationController
 
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  before_action :admin_user, only:  [:edit, :destroy]
-
+  before_filter :admin_user, only:  [:edit, :destroy]
+  before_filter :member_user, except: [:index, :show ]
 
   def index
     @recipes = Recipe.all
@@ -55,11 +55,11 @@ private
     @recipe = Recipe.find(params[:id])
   end
 
+
   # def admin_user
   #   flash[:danger] = "Only an administrator can edit or delete recipes."
   #   redirect_to recipe_path(@recipe) unless current_user.admin?
   # end
-
 
 
 end
