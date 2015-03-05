@@ -1,6 +1,8 @@
 class UserRecipesController < ApplicationController
 
 before_action :set_user_recipe, only: [ :show, :update, :destroy, :edit]
+before_filter :admin_user, only: [:destroy]
+before_filter :member_user
 
   def index
   @user = User.find(session[:user_id])

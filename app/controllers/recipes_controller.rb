@@ -1,8 +1,8 @@
 class RecipesController < ApplicationController
 
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  before_action :admin_user, only:  [:edit, :destroy]
-
+  before_filter :admin_user, only:  [:edit, :destroy]
+  before_filter :member_user, except: [:index, :show ]
 
   def index
     @recipes = Recipe.all
