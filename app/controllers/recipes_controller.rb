@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
 
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user, only:  [:edit, :destroy]
 
 
   def index
@@ -27,6 +28,23 @@ end
   end
   end
 
+def edit
+end
+
+def update
+  if @recipe.update_attributes(recipe_params)
+    redirect_to recipe_path(@recipe), notice: "Recipe has been updated."
+  else
+    redirect_to recipes_path
+  end
+end
+
+
+def destroy
+  @recipe.destroy
+  redirect_to recipes_path, notice: "Recipe deleted."
+end
+
 
 private
   def recipe_params
@@ -36,4 +54,12 @@ private
   def set_recipe
     @recipe = Recipe.find(params[:id])
   end
+
+  def admin_user
+    flash[:danger] = "Only an administrator can edit or delete recipes."
+    redirect_to recipe_path(@recipe) unless current_user.admin?
+  end
+
+
+
 end

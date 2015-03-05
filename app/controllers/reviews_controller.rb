@@ -27,9 +27,25 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find(params[:recipe_id])
+    @review = @recipe.reviews.find(params[:id])
   end
 
+  def update
+    @recipe = Recipe.find(params[:recipe_id])
+    @review = @recipe.reviews.find(params[:id])
+        if @review.update_attributes(review_params)
+          redirect_to recipe_path(@recipe), notice: "Review has been updated."
+        else
+          redirect_to recipes_path
+        end
+      end
+
   def destroy
+    @recipe = Recipe.find(params[:recipe_id])
+    @review = @recipe.reviews.find(params[:id])
+    @review.destroy
+    redirect_to recipe_path(@recipe), notice: "Review deleted."
   end
 
 
@@ -40,7 +56,9 @@ class ReviewsController < ApplicationController
   end
 
   def admin_user
-    redirect_to recipe_reviews_path(recipe) unless current_user.admin?
-    end
+    @recipe = Recipe.find(params[:recipe_id])
+    flash[:danger] = "Only an administrator can edit or delete reviews."
+    redirect_to recipe_path(@recipe) unless current_user.admin?
+  end
 
 end
