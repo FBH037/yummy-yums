@@ -68,3 +68,16 @@ footer {
   background-color:#B7250E;
   border-color:#B7250E;
 }
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  color: #B7250E;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

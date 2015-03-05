@@ -5,22 +5,24 @@
 <h1>All recipes</h1>
 <br>
 
-<table>
-<tr>
-  <th>Title</th>
-  <th>Description</th>
-  <th>Instruction</th>
-</tr>
-<tr>
-  <% @recipes.each do |recipe| %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Instruction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+    <tr>
       <td><%= link_to recipe.title, recipe_path(recipe) %></td>
-        <td><%= recipe.description %></td>
-          <td><%= recipe.instruction %></td>
-
-          <td><%= link_to "edit", edit_recipe_path(recipe) %>&nbsp;&nbsp;&nbsp;</td>
-          <td><%= link_to "delete", recipe, method: :delete,
-                                  data: { confirm: "You sure?" } %></td>
-
-  </tr>
-  <% end %>
+      <td><%= recipe.description %></td>
+      <td><%= recipe.instruction %></td>
+      <td><%= link_to "edit", edit_recipe_path(recipe) %>&nbsp;&nbsp;&nbsp;</td>
+      <td><%= link_to "delete", recipe, method: :delete,
+      data: { confirm: "You sure?" } %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
