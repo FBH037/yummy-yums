@@ -55,11 +55,5 @@ private
     @recipe = Recipe.find(params[:id])
   end
 
-  def admin_user
-    flash[:danger] = "Only an administrator can edit or delete recipes."
-    redirect_to recipe_path(@recipe) unless current_user.admin?
-  end
-
-
 
 end
