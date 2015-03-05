@@ -55,10 +55,10 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:description, :recipe_id)
   end
 
-  def admin_user
-    @recipe = Recipe.find(params[:recipe_id])
-    flash[:danger] = "Only an administrator can edit or delete reviews."
-    redirect_to recipe_path(@recipe) unless current_user.admin?
-  end
+  # def admin_user
+  #   @recipe = Recipe.find(params[:recipe_id])
+  #   flash[:danger] = "Only an administrator can edit or delete reviews."
+  #   redirect_to recipe_path(@recipe) unless current_user.admin?
+  # end
 
 end

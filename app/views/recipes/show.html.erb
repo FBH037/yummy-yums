@@ -24,11 +24,9 @@ Instruction: <%= @recipe.instruction %>
     <% @recipe.reviews.each do |review| %>
     <td><%= review.description %></td>
     <td><%="#{current_user.full_name}" %>
-      <td><% if current_user.admin? %>
         <%= link_to "edit", edit_recipe_review_path(@recipe, review) %> &nbsp;&nbsp;&nbsp;</td>
         <td><%= link_to "delete", recipe_review_path(@recipe, review), method: :delete,
         data: { confirm: "You sure?" } %></td>
-      <% end %>
   </tr>
   </tbody>
 <% end %>
