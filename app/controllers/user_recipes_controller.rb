@@ -1,8 +1,10 @@
 class UserRecipesController < ApplicationController
 
+before_action :set_user_recipe, only: [ :show, :update, :destroy, :edit]
+
   def index
   @user = User.find(session[:user_id])
-  @user_recipes = @user.recipes
+  @user_recipes = @user.user_recipes.order(:user_like).reverse
   end
 
   def new
@@ -23,9 +25,20 @@ class UserRecipesController < ApplicationController
     end
   end
 
-private
+  def like
+    @user_recipe = UserRecipe.find(params[:id])
+    @user_recipe.user_like = true
+    @user_recipe.save
+    redirect_to root_path
+  end
 
+private
   def user_recipe_params
     params.require(:user_recipe).permit(:user_id, :recipe_id, :user_like)
   end
+
+  def set_user_recipe
+    @user_recipe = UserRecipe.find(params[:id])
+  end
+
 end
