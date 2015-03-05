@@ -10,14 +10,36 @@ body{
   background-image: image-url('restaurant_icons.png');
   font-family: 'Quicksand', sans-serif;
   font-size: 14pt;
+  padding-top: 50px;
+  padding-bottom: 30px;
 }
-.wrapper{
-  margin: 50px 20% 0;
-  height: 1500px;
+// .wrapper{
+//   margin: 50px 20% 0;
+//   height: 1500px;
+//   background-color:white;
+//   opacity: .7;
+//   border-left: 5px solid #B7250E;
+//   border-right: 5px solid #B7250E;
+// }
+#wrapper{
   background-color:white;
   opacity: .7;
   border-left: 5px solid #B7250E;
   border-right: 5px solid #B7250E;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+
+}
+html, body {
+    height: 100%;
+}
+
+.fill {
+    min-height: 100%;
+    height:100%;
 }
 .navbar-brand{
   font-family: 'Bree Serif', serif;
@@ -62,7 +84,7 @@ footer {
 .btn-primary{
   background-color:#B7250E;
   border-color:#B7250E;
-  padding: 14px 30px;
+  // padding: 14px 30px;
 }
 .btn-primary:hover{
   background-color:#B7250E;
