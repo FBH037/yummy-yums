@@ -1,7 +1,9 @@
 <h1 class= "page-header"> <%= @recipe.title %></h1>
 
-Description: <%= @recipe.description %><br>
-Instruction: <%= @recipe.instruction %>
+<strong>Description:</strong> <%= @recipe.description %>
+<br>
+<br>
+<strong>Instruction: </strong><%= @recipe.instruction %>
 
 <%= form_for @user_recipe do |f| %>
 <%= f.label :user_id, "Share with" %>
