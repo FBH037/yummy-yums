@@ -2,9 +2,21 @@
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Poiret+One|Quicksand:400,700|Bree+Serif);
 
+/* font-families */
 // font-family: 'Poiret One', cursive;
 // font-family: 'Quicksand', sans-serif;
 // font-family: 'Bree Serif', serif;
+
+
+/*Reset browser defaults */
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
 
 body{
   background-image: image-url('restaurant_icons.png');
