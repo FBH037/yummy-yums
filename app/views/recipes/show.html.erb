@@ -22,9 +22,10 @@
   </tr>
 </thead>
   <tbody>
+
   <tr>
     <% @recipe.reviews.each do |review| %>
-    <td><%= review.description %></td>
+    <td><%= link_to truncate(review.description, :length =>70), recipe_review_path(@recipe, review)%></td>
     <td><%= review.reviewer %> </td>
     <td><%= link_to "edit", edit_recipe_review_path(@recipe, review) %> &nbsp;&nbsp;&nbsp;</td>
     <td><%= link_to "delete", recipe_review_path(@recipe, review), method: :delete,
