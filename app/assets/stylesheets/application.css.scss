@@ -37,6 +37,7 @@ body{
   height: auto;
   min-height: 100%;
   margin-bottom: 20px;
+  display: inline-block;
 
 }
 html, body {
@@ -80,7 +81,7 @@ footer {
   position: relative;
   color: #B7250E;
   padding: 10px;
-  position: fixed;
+  // position: fixed;
   bottom: 0;
   width: 100%;
 }
