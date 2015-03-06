@@ -1,2 +1,5 @@
+<% if @current_role == "admin" %>
+<%= link_to "Admin: edit this user", edit_user_path(@user) %>
+<% end %>
 <h1><%= @user.first_name %>&nbsp;<%= @user.last_name %></h1>
 <%= @user.email %>
