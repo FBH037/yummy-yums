@@ -29,13 +29,13 @@
           </td>
           <td>
             <% unless user_recipe.user_like? %>
-            <%= button_to "Like", like_path(user_recipe)%>
+            <%= button_to "Like", like_path(user_recipe), class: "btn btn-primary like-button" %>
             <% else %>
-            <%= button_to "Unlike", unlike_path(user_recipe)%>
+            <%= button_to "Unlike", unlike_path(user_recipe), class: "btn btn-primary like-button"%>
             <% end %>
           </td>
           <td>
-            <%= button_to "Remove", user_recipe_path(user_recipe), method: :delete%>
+            <%= button_to "Remove", user_recipe_path(user_recipe), method: :delete, class: "btn btn-primary like-button" %>
           </td>
         </tr>
         <%end%>
