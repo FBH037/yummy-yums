@@ -15,8 +15,9 @@ class ReviewsController < ApplicationController
   def create
       @review = Review.new(review_params)
       @review.recipe_id = params[:recipe_id]
+      @review.reviewer = current_user.full_name
     if @review.save
-      redirect_to [@review.recipe]
+      redirect_to @review.recipe, notice: "Review has been created."
     else
       render :new
     end
@@ -53,7 +54,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:description, :recipe_id)
+    params.require(:review).permit(:description, :recipe_id, :user_id)
   end
 
   # def admin_user

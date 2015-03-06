@@ -1,3 +1,4 @@
+<div class="col-md-offset-3 col-md-6">
 <%= form_for @user, class:"form-horizontal"  do |f| %>
 <div class="form-group">
   <div class="field">
@@ -29,21 +30,13 @@
 </div>
 
 <div class="form-group">
-  <div class="field">
     <div class="control-label">
-      <%= f.label :role, 'Role:' %>
+      <%= f.label :role, 'Role:' %>&nbsp;&nbsp;
+      <%= f.radio_button :role, 'admin' %>&nbsp;
+      <%= f.label :role, 'admin', :value => 'admin' %>&nbsp;&nbsp;
+      <%= f.radio_button :role, 'member' %>&nbsp;
+      <%= f.label :role, 'member', :value => 'member' %>
     </div>
-  </div>
-  <div class="field">
-    <div class="control-label">
-      <%= f.radio_button :role, 'admin' %>
-      <%= f.label :role, 'admin', :value => 'admin' %>
-    </div>
-  </div>
-  <div>
-    <%= f.radio_button :role, 'member' %>
-    <%= f.label :role, 'member', :value => 'member' %>
-  </div>
 </div>
 
 <div class="form-group">
@@ -74,3 +67,4 @@
   </div>
 </div>
 <% end %>
+</div>

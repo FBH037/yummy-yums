@@ -3,6 +3,7 @@
 </div>
 <div class="col-md-offset-3 col-md-6">
   <%= form_for @user, url: signup_path, class:"form-horizontal"  do |f| %>
+  <%= render 'shared/error_messages' %>
   <div class="form-group">
     <div class="field">
       <div class="control-label">
@@ -14,7 +15,7 @@
   <div class="form-group">
     <div class="field">
       <div class="control-label">
-        <%= f.label :last_name %>
+        <%= f.label :last_name, class:"control-label" %>
       </div>
     </div>
     <%= f.text_field :last_name, class:"form-control" %>
@@ -22,7 +23,7 @@
   <div class="form-group">
     <div class="field">
       <div class="control-label">
-        <%= f.label :email %>
+        <%= f.label :email, class:"control-label" %>
       </div>
     </div>
     <div>
@@ -32,7 +33,7 @@
   <div class="form-group">
     <div class="field">
       <div class="control-label">
-        <%= f.label :password %>
+        <%= f.label :password, class:"control-label" %>
       </div>
     </div>
     <%= f.password_field :password, class:"form-control" %>
@@ -40,7 +41,7 @@
   <div class="form-group">
     <div class="field">
       <div class="control-label">
-        <%= f.label :password_confirmation %>
+        <%= f.label :password_confirmation, class:"control-label" %>
       </div>
     </div>
     <%= f.password_field :password_confirmation, class:"form-control" %>

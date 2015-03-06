@@ -25,7 +25,7 @@
   <tr>
     <% @recipe.reviews.each do |review| %>
     <td><%= review.description %></td>
-    <td>review creater</td>
+    <td><%= review.reviewer %> </td>
     <td><%= link_to "edit", edit_recipe_review_path(@recipe, review) %> &nbsp;&nbsp;&nbsp;</td>
     <td><%= link_to "delete", recipe_review_path(@recipe, review), method: :delete,
         data: { confirm: "You sure?" } %></td>

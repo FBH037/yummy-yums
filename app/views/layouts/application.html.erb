@@ -35,6 +35,9 @@
   </nav>
   <div class="container fill">
     <div id="wrapper">
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type %>"><%= message %></div>
+      <% end %>
       <%= yield %>
     </div>
   </div>
