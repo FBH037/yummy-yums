@@ -1,0 +1,7 @@
+<h1 class= "page-header"> <%= @recipe.title %> Review</h1>
+
+<div><%= @review.description %></div>
+
+<div><strong>Reviewer: </strong><%= @review.reviewer %></div>
+
+<div><%= link_to 'Back to Recipe', recipe_path(@recipe), class:"btn btn-primary"  %></div>

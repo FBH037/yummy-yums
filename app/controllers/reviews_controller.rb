@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @recipe = Recipe.find(params[:recipe_id])
       @review = Review.new(review_params)
       @review.recipe_id = params[:recipe_id]
       @review.reviewer = current_user.full_name
