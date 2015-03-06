@@ -1,13 +1,13 @@
 <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
-      Please correct the following <%= "error".pluralize(@user.errors.count) %>
-      in order to complete registration:
-    </div>
+<div id="error_explanation">
+  <div class="alert alert-danger">
+  <h4>  Please correct the following <%= "error".pluralize(@user.errors.count) %>
+    in order to complete registration:</h4>
     <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
+      <% @user.errors.full_messages.each do |msg| %>
+    <h4>  <li><%= msg %></li></h4>
+      <% end %>
+    </ul>
   </div>
+</div>
 <% end %>
