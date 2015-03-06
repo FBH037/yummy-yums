@@ -32,10 +32,8 @@
 <div class="form-group">
     <div class="control-label">
       <%= f.label :role, 'Role:' %>&nbsp;&nbsp;
-      <%= f.radio_button :role, 'admin' %>&nbsp;
-      <%= f.label :role, 'admin', :value => 'admin' %>&nbsp;&nbsp;
-      <%= f.radio_button :role, 'member' %>&nbsp;
-      <%= f.label :role, 'member', :value => 'member' %>
+      <%= f.collection_select :role, ["admin", "member"] %>
+
     </div>
 </div>
 

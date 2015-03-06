@@ -4,11 +4,7 @@
   </div>
   <h1>Your recipes</h1>
 </div>
-<% if @recipes.nil? %>
-<div class="col-md-offset-2">
-<p> You don't have any recipes yet! Browse all recipes or add your own! </p>
-</div>
-<% else %>
+
 <table class="table">
   <thead>
     <tr>
@@ -47,4 +43,3 @@
       </tbody>
 
     </table>
-<% end %>

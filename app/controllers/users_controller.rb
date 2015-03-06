@@ -5,11 +5,6 @@ class UsersController < ApplicationController
 
 def index
   @users = User.all
-  if session[:user_id]
-    @current_role ||= User.find(session[:user_id]).role
-  else
-    @current_role = "visitor"
-  end
 end
 
 
@@ -32,24 +27,19 @@ end
     end
   end
 
-def show
-  if session[:user_id]
-    @current_role ||= User.find(session[:user_id]).role
-  else
-    @current_role = "visitor"
+  def show
   end
-end
 
-def edit
-end
-
-def update
-  if @user.update_attributes(user_params)
-    redirect_to user_path(@user), notice: "User has been updated"
-  else
-    redirect_to users_path
+  def edit
   end
-end
+
+  def update
+    if @user.update_attributes(user_params)
+      redirect_to user_path(@user), notice: "User has been updated"
+    else
+      redirect_to users_path
+    end
+  end
 
   def destroy
     @user.destroy
@@ -63,7 +53,7 @@ end
 
   def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :role)
   end
 
   def set_user
