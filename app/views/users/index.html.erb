@@ -3,16 +3,15 @@
 <table class="table">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Name</th>
+      <!-- <th>Last name</th> -->
       <th>Email</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <% @users.each do |user| %>
-      <td><%= user.first_name %></td>
-      <td><%= user.last_name %></td>
+      <td><%= user.first_name %> <%= user.last_name %></td>
       <td><%= user.email %></td>
     </tr>
     <% end %>
