@@ -13,14 +13,7 @@ body{
   padding-top: 50px;
   padding-bottom: 30px;
 }
-// .wrapper{
-//   margin: 50px 20% 0;
-//   height: 1500px;
-//   background-color:white;
-//   opacity: .7;
-//   border-left: 5px solid #B7250E;
-//   border-right: 5px solid #B7250E;
-// }
+
 #wrapper{
   background-color:white;
   opacity: .7;
@@ -60,7 +53,8 @@ html, body {
   color: #B7250E;
 }
 .navbar-default .navbar-brand:hover,
-.navbar-default .navbar-nav > li > a:hover{
+.navbar-default .navbar-nav > li > a:hover,
+.like-button:hover{
   -moz-transform: scale(1.2);
   -webkit-transform: scale(1.2);
   -o-transform: scale(1.2);
@@ -108,6 +102,7 @@ footer {
   -moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD
 .field_with_errors {
   @extend .has-error;
   .form-control {
@@ -117,4 +112,11 @@ footer {
 
 .alert{
   text-align: center;
+=======
+.like-button,
+.like-button:hover{
+  background-color:transparent;
+  color: #B7250E;
+  font-size:14pt;
+>>>>>>> style-recipes-index-page-89651364
 }
