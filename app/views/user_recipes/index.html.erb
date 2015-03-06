@@ -1,38 +1,38 @@
-<div class="pull-right">
-  <%= link_to 'Add A Recipe', new_recipe_path, class:"btn btn-primary" %>
+<div class="page-header">
+  <div class="pull-right">
+    <%= link_to 'Add A Recipe', new_recipe_path, class:"btn btn-primary" %>
+  </div>
+  <h1>Your recipes</h1>
 </div>
-
-<h1 class= "page-header">Your recipes</h1>
-<%= link_to "All Recipes", recipes_path, class:"btn btn-primary" %>
 
 <table class="table">
   <thead>
     <tr>
       <th>
-        Title
+        Recipe
       </th>
       <th>
         Favorite
       </th>
-      <tr>
-      </thead>
-      <tbody>
-        <tr>
-          <% @user_recipes.each do |user_recipe| %>
-          <td>
-            <%= link_to user_recipe.recipe.title, recipe_path(user_recipe.recipe_id)%>
-          </td>
-          <td>
-            <% if user_recipe.user_like? %>
-            <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
-            <% end %>
-          </td>
-          <td>
-            <%= button_to "Like", like_path(user_recipe)%>
-          </td>
-        </tr>
-        <%end%>
-
-      </tbody>
-
-    </table>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_recipes.each do |user_recipe| %>
+    <tr>
+      <td>
+        <%= link_to user_recipe.recipe.title, recipe_path(user_recipe.recipe_id)%>
+      </td>
+      <td>
+        <% if user_recipe.user_like? %>
+        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+        <% end %>
+      </td>
+      <td>
+        <% if !user_recipe.user_like? %>
+        <%= button_to "Like", like_path(user_recipe), class: "btn btn-primary like-button"%>
+        <% end %>
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
