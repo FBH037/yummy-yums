@@ -36,6 +36,7 @@ body{
   width: 100%;
   height: auto;
   min-height: 100%;
+  margin-bottom: 20px;
 
 }
 html, body {
@@ -79,6 +80,9 @@ footer {
   position: relative;
   color: #B7250E;
   padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer{
