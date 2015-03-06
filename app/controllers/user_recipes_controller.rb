@@ -27,12 +27,25 @@ before_filter :member_user
     end
   end
 
+  def destroy
+    @user_recipe.destroy
+    redirect_to root_path, notice: "You have removed a recipe from your recipes"
+  end
+
   def like
     @user_recipe = UserRecipe.find(params[:id])
     @user_recipe.user_like = true
     @user_recipe.save
-    redirect_to root_path, alert: "You have liked a recipe"
+    redirect_to root_path, notice: "You have liked a recipe"
   end
+
+  def unlike
+    @user_recipe = UserRecipe.find(params[:id])
+    @user_recipe.user_like = false
+    @user_recipe.save
+    redirect_to root_path, notice: "You have unliked a recipe"
+  end
+
 
 private
   def user_recipe_params

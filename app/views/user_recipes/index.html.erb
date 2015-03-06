@@ -27,7 +27,14 @@
             <% end %>
           </td>
           <td>
+            <% unless user_recipe.user_like? %>
             <%= button_to "Like", like_path(user_recipe)%>
+            <% else %>
+            <%= button_to "Unlike", unlike_path(user_recipe)%>
+            <% end %>
+          </td>
+          <td>
+            <%= button_to "Remove", user_recipe_path(user_recipe), method: :delete%>
           </td>
         </tr>
         <%end%>

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :admin_user, except:  [:show, :index]
-
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
 
@@ -22,7 +21,7 @@ end
   end
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "You have successfully signed up."
+      redirect_to root_path, notice: "You have successfully signed up"
     else
       render :new
     end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 
     post "user_recipe/:id/like" => 'user_recipes#like', as: :like #, id: user_recipe
+    post "user_recipe/:id/unlike" => 'user_recipes#unlike', as: :unlike #, id: user_recipe
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
