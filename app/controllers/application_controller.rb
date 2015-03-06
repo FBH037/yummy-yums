@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
     def admin_user
       if current_role != "admin"
-        redirect_to recipes_path, notice: "You don't have access!"
+        redirect_to recipes_path, alert: "You don't have access!"
       end
     end
     helper_method :admin_user
@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
     def member_user
       unless current_role == "member"
         unless current_role == "admin"
-        redirect_to recipes_path, notice: "You don't have access!"
+        redirect_to recipes_path, alert: "You don't have access!"
       end
     end
   end

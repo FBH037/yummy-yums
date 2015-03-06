@@ -22,7 +22,7 @@ end
   def create
   @recipe = Recipe.new(recipe_params)
   if @recipe.save
-    redirect_to recipe_path(@recipe), notice: "Recipe has been created."
+    redirect_to recipe_path(@recipe), notice: "Recipe has been created"
   else
     render :new
   end
@@ -33,7 +33,7 @@ end
 
 def update
   if @recipe.update_attributes(recipe_params)
-    redirect_to recipe_path(@recipe), notice: "Recipe has been updated."
+    redirect_to recipe_path(@recipe), notice: "Recipe has been updated"
   else
     redirect_to recipes_path
   end
@@ -42,7 +42,7 @@ end
 
 def destroy
   @recipe.destroy
-  redirect_to recipes_path, notice: "Recipe deleted."
+  redirect_to recipes_path, notice: "Recipe has been deleted"
 end
 
 

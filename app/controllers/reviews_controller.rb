@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
       @review.recipe_id = params[:recipe_id]
       @review.reviewer = current_user.full_name
     if @review.save
-      redirect_to @review.recipe, notice: "Review has been created."
+      redirect_to @review.recipe, notice: "Review has been created"
     else
       render :new
     end
@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @review = @recipe.reviews.find(params[:id])
         if @review.update_attributes(review_params)
-          redirect_to recipe_path(@recipe), notice: "Review has been updated."
+          redirect_to recipe_path(@recipe), notice: "Review has been updated"
         else
           redirect_to recipes_path
         end
@@ -47,7 +47,7 @@ class ReviewsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @review = @recipe.reviews.find(params[:id])
     @review.destroy
-    redirect_to recipe_path(@recipe), notice: "Review deleted."
+    redirect_to recipe_path(@recipe), notice: "Review has been deleted"
   end
 
 

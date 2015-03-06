@@ -36,7 +36,7 @@ end
 
 def update
   if @user.update_attributes(user_params)
-    redirect_to user_path(@user), notice: "User has been updated."
+    redirect_to user_path(@user), notice: "User has been updated"
   else
     redirect_to users_path
   end
@@ -44,7 +44,7 @@ end
 
   def destroy
     @user.destroy
-    redirect_to users_path, notice: "User has been deleted."
+    redirect_to users_path, notice: "User has been deleted"
   end
 
 

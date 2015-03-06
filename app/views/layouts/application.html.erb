@@ -35,8 +35,16 @@
   </nav>
   <div class="container fill">
     <div id="wrapper">
-      <% flash.each do |type, message| %>
-        <div class="alert alert-<%= type %>"><%= message %></div>
+      <% flash.each do |type, message|%>
+      <% if type == "notice" %>
+      <div class = "alert alert-success">
+        <%= message %>
+      </div>
+      <% elsif type == "alert" %>
+      <div class = "alert alert-danger">
+        <%= message %>
+      </div>
+      <% end %>
       <% end %>
       <%= yield %>
     </div>

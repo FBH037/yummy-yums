@@ -31,7 +31,7 @@ before_filter :member_user
     @user_recipe = UserRecipe.find(params[:id])
     @user_recipe.user_like = true
     @user_recipe.save
-    redirect_to root_path
+    redirect_to root_path, alert: "You have liked a recipe"
   end
 
 private
