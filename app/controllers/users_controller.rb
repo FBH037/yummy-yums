@@ -5,6 +5,11 @@ class UsersController < ApplicationController
 
 def index
   @users = User.all
+  if session[:user_id]
+    @current_role ||= User.find(session[:user_id]).role
+  else
+    @current_role = "visitor"
+  end
 end
 
 
@@ -28,6 +33,11 @@ end
   end
 
 def show
+  if session[:user_id]
+    @current_role ||= User.find(session[:user_id]).role
+  else
+    @current_role = "visitor"
+  end
 end
 
 def edit
