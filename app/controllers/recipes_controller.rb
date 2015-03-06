@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
 
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  before_filter :admin_user, only:  [:edit, :destroy]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :owner]
+  before_filter :owner, only:  [:edit, :update, :destroy]
   before_filter :member_user, except: [:index, :show ]
 
   def index
@@ -9,23 +9,23 @@ class RecipesController < ApplicationController
   end
 
   def show
-  # recipe_id[:recipe_id] = @recipe.id
-  @user_recipe = UserRecipe.new
-  @recipe = Recipe.find(params[:id])
-  @reviews = @recipe.reviews
-end
+    # recipe_id[:recipe_id] = @recipe.id
+    @user_recipe = UserRecipe.new
+    @recipe = Recipe.find(params[:id])
+    @reviews = @recipe.reviews
+  end
 
   def new
     @recipe = Recipe.new
   end
 
   def create
-  @recipe = Recipe.new(recipe_params)
-  if @recipe.save
-    redirect_to recipe_path(@recipe), notice: "Recipe has been created"
-  else
-    render :new
-  end
+    @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      redirect_to recipe_path(@recipe), notice: "Recipe has been created"
+    else
+      render :new
+    end
   end
 
 def edit
@@ -47,6 +47,17 @@ end
 
 
 private
+
+  def owner
+    unless current_user.id == @recipe.user_id
+      unless current_role == "admin"
+        redirect_to recipes_path, alert: "You don't have access!"
+      end
+    end
+  end
+
+
+
   def recipe_params
     params.require(:recipe).permit(:title, :description, :instruction )
   end

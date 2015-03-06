@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
+  before_filter :owner, only:  [:edit, :update, :destroy]
+  before_filter :member_user, except: [:index, :show ]
 
-  before_action :admin_user, only:  [:edit, :update, :destroy]
-  before_action :member_user, except: [:show, :index]
 
   def index
     @reviews = Review.all
@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
       @review = Review.new(review_params)
       @review.recipe_id = params[:recipe_id]
       @review.reviewer = current_user.full_name
+      @review.user_id = current_user.id
     if @review.save
       redirect_to @review.recipe, notice: "Review has been created"
     else
@@ -52,7 +53,17 @@ class ReviewsController < ApplicationController
   end
 
 
-  private
+private
+
+  def owner
+    @recipe = Recipe.find(params[:recipe_id])
+    @review = @recipe.reviews.find(params[:id])
+    unless current_user.full_name == @review.reviewer
+      unless current_role == "admin"
+        redirect_to recipes_path, alert: "You don't have access!"
+      end
+    end
+  end
 
   def review_params
     params.require(:review).permit(:description, :recipe_id, :user_id)
