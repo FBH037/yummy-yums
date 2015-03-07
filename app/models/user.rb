@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, case_sensitive: false
 
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  # validates :password, length: { minimum: 6 }
 
   has_many :user_recipes
   has_many :reviews

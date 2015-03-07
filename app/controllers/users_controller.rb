@@ -34,10 +34,10 @@ end
   end
 
   def update
-    if @user.update_attributes(user_params)
+    if @user.update_attributes(params.require(:user).permit(:first_name, :last_name, :email, :role))
       redirect_to user_path(@user), notice: "User has been updated"
     else
-      redirect_to users_path
+      render :edit
     end
   end
 
@@ -49,11 +49,9 @@ end
 
   private
 
-  # Note that the code below is required to ensure proper admin access:
 
   def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password,
-                                   :password_confirmation, :role)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role)
   end
 
   def set_user
