@@ -44,7 +44,8 @@ def edit
 end
 
 def update
-  if @user.update_attributes(user_params)
+  if @user.update_attributes(params.require(:user).permit(:first_name, :last_name, :email, :password,
+                                 :password_confirmation, :role))
     redirect_to user_path(@user), notice: "User has been updated"
   else
     redirect_to users_path
